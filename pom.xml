@@ -6,12 +6,14 @@
 
     <groupId>coop.rchain.grpc</groupId>
     <artifactId>rchain-grpc-java-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
 
 
     <properties>
         <protobuf.version>3.11.4</protobuf.version>
         <grpc.version>1.28.0</grpc.version>
+        <guava.version>28.2-jre</guava.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,6 +33,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
         <!-- Protobuf -->
         <dependency>
             <groupId>com.google.protobuf</groupId>
@@ -38,7 +46,7 @@
             <version>${protobuf.version}</version>
         </dependency>
 
-        <!-- GRPC -->
+        <!-- gRPC -->
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-core</artifactId>

@@ -1,8 +1,12 @@
 package coop.rchain;
 
+import com.google.common.base.Preconditions;
 import io.grpc.stub.AbstractAsyncStub;
 import io.grpc.stub.AbstractBlockingStub;
 
+/**
+ * Abstract client for RChain gRPC API
+ */
 public class AbstractClient<T extends AbstractBlockingStub, U extends AbstractAsyncStub> {
 
     protected final T blockingStub;
@@ -18,8 +22,8 @@ public class AbstractClient<T extends AbstractBlockingStub, U extends AbstractAs
         U asyncStub;
 
         protected Builder(T blockingStub, U asyncStub) {
-            this.blockingStub = blockingStub;
-            this.asyncStub = asyncStub;
+            this.blockingStub = Preconditions.checkNotNull(blockingStub);
+            this.asyncStub = Preconditions.checkNotNull(asyncStub);
         }
 
         public abstract AbstractClient build();
@@ -33,7 +37,7 @@ public class AbstractClient<T extends AbstractBlockingStub, U extends AbstractAs
             this.asyncStub = (U) asyncStub;
             return this;
         }
-        
+
     }
 
 

@@ -3,6 +3,7 @@ package coop.rchain.comm.protocol.routing;
 import coop.rchain.AbstractClient;
 import io.grpc.Channel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
 
 public class TransportLayer extends AbstractClient {
 
@@ -26,7 +27,7 @@ public class TransportLayer extends AbstractClient {
         }
 
         @Override
-        public AbstractClient build() {
+        public TransportLayer build() {
             return new TransportLayer(this);
         }
 
@@ -41,7 +42,12 @@ public class TransportLayer extends AbstractClient {
         }
     }
 
-    // todo implement api methods
+    public Routing.TLResponse send(Routing.TLRequest request) {
+        return ((TransportLayerGrpc.TransportLayerBlockingStub) this.blockingStub).send(request);
+    }
 
+    public StreamObserver<Routing.Chunk> stream(StreamObserver<Routing.TLResponse> responseObserver) {
+        return ((TransportLayerGrpc.TransportLayerStub) this.asyncStub).stream(responseObserver);
+    }
 
 }

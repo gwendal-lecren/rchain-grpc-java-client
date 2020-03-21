@@ -26,7 +26,7 @@ public class ProposeService extends AbstractClient {
         }
 
         @Override
-        public AbstractClient build() {
+        public ProposeService build() {
             return new ProposeService(this);
         }
 
