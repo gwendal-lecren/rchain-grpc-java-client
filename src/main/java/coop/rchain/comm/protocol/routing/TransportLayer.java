@@ -8,7 +8,7 @@ import io.grpc.stub.StreamObserver;
 public class TransportLayer extends AbstractClient {
 
 
-    protected TransportLayer(Builder builder) {
+    TransportLayer(Builder builder) {
         super(builder);
     }
 

@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class DeployService extends AbstractClient {
 
 
-    protected DeployService(Builder builder) {
+    DeployService(Builder builder) {
         super(builder);
     }
 
