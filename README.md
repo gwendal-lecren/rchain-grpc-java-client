@@ -1,4 +1,4 @@
-# RChain gRPC API Client Library for Java
+# [WIP] RChain gRPC API Client Library for Java
 
 Communicate with the RChain blockchain.
 
